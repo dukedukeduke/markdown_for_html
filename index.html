@@ -5,6 +5,7 @@
 	</head>
 	<body>
 		<div id="markdown" style="border: black 1px solid;border-radius:10%;position: absolute; top: 2%; bottom:2%; left:20%; right:20%; padding: 20px; border-radius: 5px; padding-right:260px;overflow:auto;background:white">
+		<div id="html" style="border: black 1px solid;border-radius:10%;position: absolute; top: 2%; bottom:2%; left:20%; right:20%; padding: 20px; border-radius: 5px; padding-right:260px;overflow:auto;background:white">
     </div>
 	</body>
 	<script>
@@ -16,7 +17,8 @@
             var converter = new showdown.Converter();
             converter.setOption('tasklists', true); //设置option, 支持tasklists
             var html = converter.makeHtml(xhr.responseText);
-            $("#markdown").html(html);   //提示框弹出响应的内容
+            $("#markdown").html(html); 
+			$("#html").html(xhr.responseText);
         }
     }
 	</script>
