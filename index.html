@@ -4,9 +4,7 @@
 		<script src="static/js/jquery-2.2.1.min.js"></script>
 	</head>
 	<body>
-		<div id="markdown" style="border: black 1px solid;border-radius:10%;position: absolute; top: 2%; bottom:2%; left:20%; right:20%; padding: 20px; border-radius: 5px; padding-right:260px;overflow:auto;background:white">
-		<div id="html" style="border: black 1px solid;border-radius:10%;position: absolute; top: 2%; bottom:2%; left:20%; right:20%; padding: 20px; border-radius: 5px; padding-right:260px;overflow:auto;background:white">
-    </div>
+		<div id="markdown" style="border: black 1px solid;border-radius:10%;position: absolute; top: 2%; bottom:2%; left:20%; right:20%; padding: 20px; border-radius: 5px; padding-right:260px;overflow:auto;background:white"></div>
 	</body>
 	<script>
     var xhr = new XMLHttpRequest();  //创建XMLHttpRequest
@@ -18,7 +16,6 @@
             converter.setOption('tasklists', true); //设置option, 支持tasklists
             var html = converter.makeHtml(xhr.responseText);
             $("#markdown").html(html); 
-			$("#html").html(xhr.responseText);
         }
     }
 	</script>
