@@ -1,29 +1,22 @@
-
 <html>
-<head>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-9967128751195328",
-      enable_page_level_ads: true
-    });
-  </script>
-</head>
-<body>
-<h1>Just for google ads test</h1>
-<div>
-  <form>
-    <p>
-        Status:<span id="conn_number"></span>
-    </p>
-    <p>
-        Message: <input id="message" type="text" value="Hello, world!">
-    </p>
-  </form>
-<button onclick="send();">Send Message</button>
-<button onclick="conn_server();">Re-build connetcion</button>
-<p>
-Recv: <span id="recv_msg"></span>
-</div>
-</body>
+	<head>
+		<script src="static/js/showdown.min.js"></script>
+	</head>
+	<body>
+		<div id="markdown" style="border: black 1px solid;border-radius:10%;position: absolute; top: 2%; bottom:2%; left:20%; right:20%; padding: 20px; border-radius: 5px; padding-right:260px;overflow:auto;background:white">
+    </div>
+	</body>
+	<script>
+    var xhr = new XMLHttpRequest();  //创建XMLHttpRequest
+    xhr.open("get","static/index/index.md");      //open方法初始化请求参数（第一个参数是请求方法，第二个参数是url）
+    xhr.send();
+    xhr.onreadystatechange = function(){ //readyState值改变，事件会被触发
+        if(xhr.readyState === 4 && xhr.status === 200){ //判断readyState属性和status属性是否符合要求
+            var converter = new showdown.Converter();
+            converter.setOption('tasklists', true); //设置option, 支持tasklists
+            var html = converter.makeHtml(xhr.responseText);
+            $("#markdown").html(html);   //提示框弹出响应的内容
+        }
+    }
+	</script>
 </html>
